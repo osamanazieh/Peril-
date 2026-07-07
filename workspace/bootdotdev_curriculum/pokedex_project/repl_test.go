@@ -3,6 +3,7 @@ package main
 import (
 	"testing"
 	"github.com/google/go-cmp/cmp"
+	"github.com/osamaNazieh/pokedexcli/internal/util"
 )
 
 
@@ -21,7 +22,7 @@ func TestCleanInput(t *testing.T) {
 	}
 	for name, tc  := range cases {
 		t.Run(name, func (t *testing.T)  {
-			got := cleanInput(tc.input)
+			got := util.CleanInput(tc.input)
 			diff := cmp.Diff(tc.expected, got)		
 			if diff != "" {
 				t.Fatal(diff)
@@ -31,3 +32,4 @@ func TestCleanInput(t *testing.T) {
 	
 }
 
+	

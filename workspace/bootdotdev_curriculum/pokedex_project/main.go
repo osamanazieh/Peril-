@@ -2,9 +2,11 @@ package main
 
 import (
 	"bufio"
-	"os"
 	"fmt"
-	
+	"os"
+
+	"github.com/osamaNazieh/pokedexcli/internal/commands"
+	"github.com/osamaNazieh/pokedexcli/internal/util"
 )
 
 
@@ -14,9 +16,27 @@ func main() {
 	for true {
 		fmt.Print("pokedex > ")
 		for scanner.Scan() {
-			inputCommand := cleanInput(scanner.Text())[0]
-			if cmd, ok := commands[inputCommand]; ok {
-				cmd.command()
+			inputCommand := util.CleanInput(scanner.Text())
+			
+			
+			
+			if cmd, ok := commands.Commands[inputCommand[0]]; ok {
+				switch(cmd.Name) {
+					case "explore":
+						fallthrough
+					case "catch":
+						fallthrough
+					case "inspect":
+						if len(inputCommand) < 2 {
+							fmt.Println("a second argument must be provided for this command, see description below")
+							fmt.Printf("======================================\n%s\n======================================\n", cmd.Description)
+							break
+						}
+						cmd.Command(inputCommand[1])
+					default:
+						cmd.Command("")
+				}
+				
 			}
 			break
 		}
