@@ -2,6 +2,8 @@
 
 A distributed multiplayer game demonstrating RabbitMQ message queuing and pub/sub patterns in Go.
 
+> **Note**: This is a completed project based on Boot.dev's [Learn Pub/Sub](https://learn.boot.dev/learn-pub-sub) course by Osama Nazieh.
+
 ## Overview
 
 Peril is a strategy game where multiple players compete by managing units and territories. The game uses RabbitMQ to handle real-time communication between a central server and multiple game clients, showcasing practical applications of message-oriented middleware.
@@ -154,7 +156,3 @@ This project demonstrates:
 Default RabbitMQ connection: `amqp://guest:guest@localhost:5672/`
 
 Modify the connection string in `cmd/server/main.go` and `cmd/client/main.go` if using different credentials or host.
-
-## License
-
-Part of Boot.dev curriculum materials.
