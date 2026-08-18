@@ -156,3 +156,7 @@ This project demonstrates:
 Default RabbitMQ connection: `amqp://guest:guest@localhost:5672/`
 
 Modify the connection string in `cmd/server/main.go` and `cmd/client/main.go` if using different credentials or host.
+
+## License
+
+Part of Boot.dev curriculum materials.
